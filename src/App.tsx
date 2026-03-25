@@ -11,7 +11,7 @@ import {
   FloatingWhatsApp,
   PolicyModal
 } from './components/CustomOrderForm';
-import { ShoppingBag, Search, Menu } from 'lucide-react';
+import { Menu } from 'lucide-react';
 
 function App() {
   const [isFormOpen, setIsFormOpen] = useState(false);
