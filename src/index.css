@@ -30,6 +30,19 @@ body {
   @apply bg-[#030303] text-white min-h-screen overflow-x-hidden font-body;
   -webkit-font-smoothing: antialiased;
   scroll-behavior: smooth;
+  /* Optimize for smooth touch scrolling on mobile */
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Smooth Scroll Implementation for professional feel */
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  :root {
+    scroll-behavior: smooth;
+  }
 }
 
 /* Hardware acceleration for scrolling and animations */
