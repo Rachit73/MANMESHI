@@ -795,7 +795,7 @@ Request: ${formData.request}`;
                   >
                     <div className="relative mb-8 md:mb-10">
                       <div className="w-24 h-24 md:w-32 md:h-32 bg-green-500/10 text-green-500 rounded-full flex items-center justify-center animate-pulse border border-green-500/20 mx-auto">
-                        <CheckCircle2 size={48} md:size={64} />
+                        <CheckCircle2 size={64} />
                       </div>
                       <div className="absolute -top-1 -right-1 md:-top-2 md:-right-2 p-2 md:p-3 bg-[#25D366] text-white rounded-full shadow-lg">
                         <MessageSquare size={24} />
@@ -812,7 +812,7 @@ Request: ${formData.request}`;
                       }}
                       className="w-full py-4 md:py-5 bg-[#25D366] text-white rounded-xl md:rounded-2xl font-bold text-lg md:text-xl flex items-center justify-center gap-4 hover:scale-105 transition-transform shadow-2xl"
                     >
-                      <MessageSquare size={24} md:size={28} />
+                      <MessageSquare size={28} />
                       Chat on WhatsApp
                     </button>
                     <button
