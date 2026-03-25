@@ -56,22 +56,14 @@ function App() {
     <div className="min-h-screen bg-[#030303] selection:bg-[#ff4b82]/30 text-white font-body">
       {/* Navigation */}
       <nav className="fixed top-0 w-full z-[100] glass-dark border-b border-white/5 px-4 md:px-12 py-3 md:py-5 flex items-center justify-between">
-        <div className="flex items-center gap-2 md:gap-4">
-          <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="p-2 text-white/60 hover:text-white transition-colors lg:hidden"
-          >
-            <Menu size={20} />
-          </button>
-          <div className="flex items-center gap-2 md:gap-3">
-            <img
-              src="/logo.png"
-              alt="Logo"
-              className="h-12 md:h-32 w-auto mix-blend-screen"
-            />
-            <div className="text-lg md:text-3xl font-heading font-black tracking-tighter gradient-text leading-tight">
-              THE MANMESHI
-            </div>
+        <div className="flex items-center gap-2 md:gap-3">
+          <img
+            src="/logo.png"
+            alt="Logo"
+            className="h-12 md:h-32 w-auto mix-blend-screen"
+          />
+          <div className="text-lg md:text-3xl font-heading font-black tracking-tighter gradient-text leading-tight">
+            THE MANMESHI
           </div>
         </div>
 
@@ -83,6 +75,12 @@ function App() {
         </div>
 
         <div className="flex items-center gap-2 md:gap-6">
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="p-2 text-white/60 hover:text-white transition-colors lg:hidden"
+          >
+            <Menu size={24} />
+          </button>
         </div>
       </nav>
 
