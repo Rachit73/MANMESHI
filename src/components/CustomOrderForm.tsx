@@ -830,24 +830,10 @@ Request: ${formData.request}`;
 // --- MAIN PAGE SECTIONS ---
 
 export const Hero = ({ onOpenForm }: { onOpenForm: () => void }) => (
-  <section className="relative min-h-screen flex items-center justify-center px-4 md:px-6 pt-20 overflow-hidden">
-    {/* Parallax Background Elements */}
-    <motion.div
-      animate={{
-        scale: [1, 1.2, 1],
-        rotate: [0, 90, 0],
-      }}
-      transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-      className="absolute top-20 -left-20 w-48 md:w-96 h-48 md:h-96 bg-[#ff4b82] rounded-full mix-blend-screen filter blur-[80px] md:blur-[150px] opacity-20"
-    />
-    <motion.div
-      animate={{
-        scale: [1, 1.3, 1],
-        rotate: [0, -90, 0],
-      }}
-      transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-      className="absolute bottom-20 -right-20 w-64 md:w-[500px] h-64 md:h-[500px] bg-[#8a2be2] rounded-full mix-blend-screen filter blur-[100px] md:blur-[180px] opacity-20"
-    />
+  <section className="relative min-h-screen flex items-center justify-center px-4 md:px-6 pt-20 overflow-hidden optimize-gpu">
+    {/* Simplified Background Elements */}
+    <div className="absolute top-20 -left-20 w-48 md:w-96 h-48 md:h-96 bg-[#ff4b82] rounded-full mix-blend-screen opacity-10 blur-[80px]" />
+    <div className="absolute bottom-20 -right-20 w-64 md:w-[500px] h-64 md:h-[500px] bg-[#8a2be2] rounded-full mix-blend-screen opacity-10 blur-[100px]" />
 
     <div className="relative z-10 text-center max-w-5xl mx-auto py-12 md:py-0">
       <motion.div
@@ -890,18 +876,18 @@ export const Occasions = ({ onOpenForm }: { onOpenForm: () => void }) => {
   ];
 
   return (
-    <section className="py-12 md:py-24 px-4 md:px-6 max-w-7xl mx-auto">
+    <section className="py-12 md:py-24 px-4 md:px-6 max-w-7xl mx-auto optimize-gpu">
       <div className="text-center mb-12 md:mb-16">
         <h2 className="text-3xl md:text-5xl font-heading font-bold mb-4">Occasions to Celebrate</h2>
         <p className="text-white/40 font-medium italic text-sm md:text-base">Find the perfect gift for every milestone.</p>
       </div>
       <div className="grid grid-cols-1 gap-16 md:gap-24">
         {occasions.map((occ, i) => (
-          <div key={i} className={cn("flex flex-col md:flex-row items-center gap-10 md:gap-16 text-center md:text-left", i % 2 !== 0 && "md:flex-row-reverse")}>
+          <div key={i} className={cn("flex flex-col md:flex-row items-center gap-10 md:gap-16 text-center md:text-left optimize-gpu", i % 2 !== 0 && "md:flex-row-reverse")}>
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, margin: "-100px" }}
               className="flex-1 space-y-6 md:space-y-8 order-2 md:order-none"
             >
               <h2 className="text-4xl md:text-6xl font-heading font-bold">{occ.title}</h2>
@@ -916,12 +902,12 @@ export const Occasions = ({ onOpenForm }: { onOpenForm: () => void }) => {
               </div>
             </motion.div>
             <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
+              initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, margin: "-100px" }}
               className="flex-1 w-full aspect-[4/3] rounded-[30px] md:rounded-[40px] overflow-hidden shadow-2xl border border-white/5 order-1 md:order-none"
             >
-              <img src={occ.img} alt={occ.title} className="w-full h-full object-cover transition-transform duration-700 hover:scale-110" />
+              <img src={occ.img} alt={occ.title} className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />
             </motion.div>
           </div>
         ))}

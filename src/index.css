@@ -29,20 +29,28 @@
 body {
   @apply bg-[#030303] text-white min-h-screen overflow-x-hidden font-body;
   -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
+}
+
+/* Hardware acceleration for scrolling and animations */
+* {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .glass {
   background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .glass-dark {
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: rgba(0, 0, 0, 0.85);
   border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.optimize-gpu {
+  transform: translateZ(0);
+  will-change: transform, opacity;
 }
 
 .gradient-text {
