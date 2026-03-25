@@ -202,10 +202,10 @@ export const Categories = () => {
   ];
 
   return (
-    <section className="py-2 md:py-4 px-4 md:px-6 max-w-7xl mx-auto optimize-gpu">
-      <div className="text-center mb-2 md:mb-4">
-        <h2 className="text-xl md:text-3xl font-heading font-bold mb-1">Curated Categories</h2>
-        <div className="w-12 h-1 bg-gradient-to-r from-[#ff4b82] to-[#8a2be2] mx-auto" />
+    <section className="py-8 md:py-16 px-4 md:px-6 max-w-7xl mx-auto optimize-gpu">
+      <div className="text-center mb-6 md:mb-10">
+        <h2 className="text-2xl md:text-4xl font-heading font-bold mb-2">Curated Categories</h2>
+        <div className="w-16 h-1 bg-gradient-to-r from-[#ff4b82] to-[#8a2be2] mx-auto" />
       </div>
       <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-5 gap-4 md:gap-6">
         {cats.map((cat, i) => (
@@ -252,12 +252,12 @@ export const Gallery = () => {
   }, []);
 
   return (
-    <section className="py-2 md:py-4 px-4 md:px-6 max-w-7xl mx-auto">
-      <div className="text-center mb-2 md:mb-4">
-        <h2 className="text-2xl md:text-3xl font-heading font-bold mb-1">Curated Showcase</h2>
-        <p className="text-white/40 font-medium italic text-[10px] md:text-xs">Handpicked masterpieces, crafted for you.</p>
+    <section className="py-8 md:py-16 px-4 md:px-6 max-w-7xl mx-auto">
+      <div className="text-center mb-6 md:mb-12">
+        <h2 className="text-3xl md:text-5xl font-heading font-bold mb-2">Curated Showcase</h2>
+        <p className="text-white/40 font-medium italic text-sm md:text-base">Handpicked masterpieces, crafted for you.</p>
       </div>
-      <div className="relative h-[250px] md:h-[450px] rounded-[16px] md:rounded-[30px] overflow-hidden shadow-2xl border border-white/10 group">
+      <div className="relative h-[350px] md:h-[600px] rounded-[24px] md:rounded-[40px] overflow-hidden shadow-2xl border border-white/10 group">
         <AnimatePresence mode="wait">
           <motion.img
             key={index}
@@ -305,32 +305,35 @@ export const Gallery = () => {
 
 // 5. ABOUT SECTION
 export const About = () => (
-  <section className="py-2 md:py-4 px-4 md:px-6 bg-white/[0.01] optimize-gpu" id="about">
-    <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-3 md:gap-6">
+  <section className="py-8 md:py-16 px-4 md:px-6 bg-white/[0.01] optimize-gpu" id="about">
+    <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-6 md:gap-12">
       <div className="flex-1 relative w-full opacity-0 animate-[fadeIn_0.5s_ease-out_forwards]">
         <div className="absolute -top-4 md:-top-6 -left-4 md:-left-6 w-32 md:w-40 h-32 md:h-40 bg-[#ff4b82] rounded-full filter blur-[60px] md:blur-[100px] opacity-20" />
         <img
           src="https://images.unsplash.com/photo-1513201099705-a9746e1e201f?q=80&w=800&auto=format&fit=crop"
-          className="rounded-lg md:rounded-[20px] shadow-2xl relative z-10 border border-white/5 w-full object-cover aspect-[21/9] md:aspect-auto"
+          className="rounded-2xl md:rounded-[40px] shadow-2xl relative z-10 border border-white/5 w-full object-cover aspect-[4/3] md:aspect-auto"
           alt="Our Story"
           loading="lazy"
         />
       </div>
-      <div className="flex-1 space-y-1 md:space-y-2 text-center md:text-left opacity-0 animate-[fadeIn_0.5s_ease-out_forwards_0.2s]">
-        <h2 className="text-xl md:text-3xl font-heading font-bold gradient-text">Our Story</h2>
-        <div className="space-y-1 md:space-y-2 text-[10px] md:text-sm text-white/60 leading-relaxed font-medium">
+      <div className="flex-1 space-y-4 md:space-y-6 text-center md:text-left opacity-0 animate-[fadeIn_0.5s_ease-out_forwards_0.2s]">
+        <h2 className="text-3xl md:text-5xl font-heading font-bold gradient-text">Our Story</h2>
+        <div className="space-y-3 md:space-y-4 text-base md:text-lg text-white/60 leading-relaxed font-medium">
           <p>
             It all started with a single resin frame and a dream to capture the ephemeral beauty of a single moment. "The Manmeshi" was born out of a passion for storytelling through art.
           </p>
+          <p>
+            Our founder, Vineet, began experimenting with resin in a small studio, driven by the belief that every gift should be as unique as the memory it represents.
+          </p>
         </div>
-        <div className="flex justify-center md:justify-start gap-4 md:gap-8 pt-2 border-t border-white/5">
+        <div className="flex justify-center md:justify-start gap-6 md:gap-10 pt-4 border-t border-white/5">
           <div>
-            <div className="text-lg md:text-xl font-bold text-white mb-0.5">5000+</div>
-            <div className="text-[7px] md:text-[8px] font-bold uppercase tracking-widest text-white/20">Happy Gifters</div>
+            <div className="text-2xl md:text-3xl font-bold text-white mb-0.5">5000+</div>
+            <div className="text-[10px] md:text-xs font-bold uppercase tracking-widest text-white/20">Happy Gifters</div>
           </div>
           <div>
-            <div className="text-lg md:text-xl font-bold text-white mb-0.5">100%</div>
-            <div className="text-[7px] md:text-[8px] font-bold uppercase tracking-widest text-white/20">Personalised</div>
+            <div className="text-2xl md:text-3xl font-bold text-white mb-0.5">100%</div>
+            <div className="text-[10px] md:text-xs font-bold uppercase tracking-widest text-white/20">Personalised</div>
           </div>
         </div>
       </div>
@@ -830,29 +833,29 @@ Request: ${formData.request}`;
 // --- MAIN PAGE SECTIONS ---
 
 export const Hero = ({ onOpenForm }: { onOpenForm: () => void }) => (
-  <section className="relative flex items-center justify-center px-4 md:px-6 pt-12 md:pt-16 pb-4 md:pb-6 overflow-hidden optimize-gpu">
+  <section className="relative min-h-[50vh] md:min-h-[80vh] flex items-center justify-center px-4 md:px-6 pt-24 md:pt-32 pb-8 md:pb-12 overflow-hidden optimize-gpu">
     {/* Static Background Elements */}
     <div className="absolute top-0 -left-20 w-48 md:w-96 h-48 md:h-96 bg-[#ff4b82] rounded-full mix-blend-screen opacity-10 blur-[80px]" />
     <div className="absolute bottom-0 -right-20 w-64 md:w-[500px] h-64 md:h-[500px] bg-[#8a2be2] rounded-full mix-blend-screen opacity-10 blur-[100px]" />
 
     <div className="relative z-10 text-center max-w-5xl mx-auto">
       <div className="opacity-0 animate-[fadeIn_0.5s_ease-out_forwards]">
-        <div className="inline-flex items-center gap-2 px-3 md:px-4 py-1 rounded-full bg-white/5 border border-white/10 text-[9px] md:text-xs font-bold text-white/60 mb-1 md:mb-2 backdrop-blur-2xl uppercase tracking-[0.15em] md:tracking-[0.2em]">
-          <Sparkles size={10} className="text-yellow-400" />
+        <div className="inline-flex items-center gap-2 px-4 md:px-6 py-1.5 rounded-full bg-white/5 border border-white/10 text-[10px] md:text-sm font-bold text-white/60 mb-3 md:mb-4 backdrop-blur-2xl uppercase tracking-[0.15em] md:tracking-[0.2em]">
+          <Sparkles size={12} className="text-yellow-400" />
           <span>Handcrafted Luxury Gifts</span>
         </div>
-        <h1 className="text-4xl sm:text-5xl md:text-6xl font-heading font-black tracking-tighter mb-1 md:mb-2 leading-[1.1] md:leading-[1.0]">
+        <h1 className="text-4xl sm:text-6xl md:text-8xl font-heading font-black tracking-tighter mb-2 md:mb-3 leading-[1.1] md:leading-[0.95]">
           Create Your Own <br />
           <span className="gradient-text">Custom Gift 💖</span>
         </h1>
-        <p className="text-xs md:text-sm text-white/40 max-w-xl mx-auto mb-3 md:mb-4 font-medium leading-relaxed px-4 md:px-0">
+        <p className="text-sm md:text-lg text-white/40 max-w-2xl mx-auto mb-6 md:mb-8 font-medium leading-relaxed px-4 md:px-0">
           Personalised resin gifts crafted with love. We turn your precious memories into timeless pieces of art.
         </p>
 
         <div className="flex justify-center px-4 md:px-0">
           <button
             onClick={onOpenForm}
-            className="w-full md:w-auto px-6 md:px-8 py-2.5 md:py-3.5 bg-gradient-to-r from-[#ff4b82] to-[#8a2be2] rounded-full font-bold text-white shadow-2xl hover:scale-105 transition-all duration-300 btn-glow text-sm md:text-base active:scale-95"
+            className="w-full md:w-auto px-8 md:px-12 py-3.5 md:py-4.5 bg-gradient-to-r from-[#ff4b82] to-[#8a2be2] rounded-full font-bold text-white shadow-2xl hover:scale-105 transition-all duration-300 btn-glow text-base md:text-lg active:scale-95"
           >
             Get Your Product Customised 💝
           </button>
@@ -872,31 +875,31 @@ export const Occasions = ({ onOpenForm }: { onOpenForm: () => void }) => {
   ];
 
   return (
-    <section className="py-2 md:py-4 px-4 md:px-6 max-w-7xl mx-auto optimize-gpu">
-      <div className="text-center mb-2 md:mb-4">
-        <h2 className="text-xl md:text-3xl font-heading font-bold mb-1">Occasions to Celebrate</h2>
-        <p className="text-white/40 font-medium italic text-[10px] md:text-xs">Find the perfect gift for every milestone.</p>
+    <section className="py-8 md:py-16 px-4 md:px-6 max-w-7xl mx-auto optimize-gpu">
+      <div className="text-center mb-6 md:mb-10">
+        <h2 className="text-3xl md:text-5xl font-heading font-bold mb-2 md:mb-4">Occasions to Celebrate</h2>
+        <p className="text-white/40 font-medium italic text-sm md:text-base">Find the perfect gift for every milestone.</p>
       </div>
-      <div className="grid grid-cols-1 gap-3 md:gap-6">
+      <div className="grid grid-cols-1 gap-8 md:gap-16">
         {occasions.map((occ, i) => (
-          <div key={i} className={cn("flex flex-col md:flex-row items-center gap-2 md:gap-6 text-center md:text-left optimize-gpu", i % 2 !== 0 && "md:flex-row-reverse")}>
+          <div key={i} className={cn("flex flex-col md:flex-row items-center gap-6 md:gap-12 text-center md:text-left optimize-gpu", i % 2 !== 0 && "md:flex-row-reverse")}>
             <div
-              className="flex-1 space-y-1 md:space-y-2 order-2 md:order-none opacity-0 animate-[fadeIn_0.5s_ease-out_forwards]"
+              className="flex-1 space-y-4 md:space-y-6 order-2 md:order-none opacity-0 animate-[fadeIn_0.5s_ease-out_forwards]"
               style={{ animationDelay: `${i * 0.1}s` }}
             >
-              <h2 className="text-lg md:text-3xl font-heading font-bold">{occ.title}</h2>
-              <p className="text-[10px] md:text-sm text-white/40 leading-relaxed font-medium px-4 md:px-0">{occ.desc}</p>
+              <h2 className="text-2xl md:text-5xl font-heading font-bold">{occ.title}</h2>
+              <p className="text-sm md:text-lg text-white/40 leading-relaxed font-medium px-4 md:px-0">{occ.desc}</p>
               <div className="flex justify-center md:justify-start px-4 md:px-0">
                 <button
                   onClick={onOpenForm}
-                  className="w-full md:w-auto px-4 py-2 md:py-2.5 bg-gradient-to-r from-[#ff4b82] to-[#8a2be2] rounded-full font-bold text-white shadow-lg hover:scale-105 transition-all duration-300 btn-glow text-[10px] md:text-xs active:scale-95"
+                  className="w-full md:w-auto px-6 py-3 md:py-4 bg-gradient-to-r from-[#ff4b82] to-[#8a2be2] rounded-full font-bold text-white shadow-lg hover:scale-105 transition-all duration-300 btn-glow text-sm md:text-base active:scale-95"
                 >
                   Get Your Product Customised 💝
                 </button>
               </div>
             </div>
             <div
-              className="flex-1 w-full aspect-[21/9] rounded-[12px] md:rounded-[24px] overflow-hidden shadow-2xl border border-white/5 order-1 md:order-none opacity-0 animate-[fadeIn_0.5s_ease-out_forwards]"
+              className="flex-1 w-full aspect-[16/9] md:aspect-[4/3] rounded-[24px] md:rounded-[40px] overflow-hidden shadow-2xl border border-white/5 order-1 md:order-none opacity-0 animate-[fadeIn_0.5s_ease-out_forwards]"
               style={{ animationDelay: `${i * 0.1 + 0.1}s` }}
             >
               <img
