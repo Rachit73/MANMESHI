@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+@theme {
+  --font-heading: "Playfair Display", serif;
+  --font-body: "Poppins", sans-serif;
+  --color-primary: #ff4b82;
+  --color-primary-dark: #e03e72;
+  --color-secondary: #8a2be2;
+  --color-secondary-dark: #721acb;
+  --background-image-gradient-main: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  --background-image-gradient-accent: linear-gradient(135deg, #ff4b82 0%, #8a2be2 100%);
+  --animate-glow: glow 2s infinite alternate;
+
+  @keyframes glow {
+    0% {
+      box-shadow: 0 0 5px rgba(255, 75, 130, 0.5);
+    }
+
+    100% {
+      box-shadow: 0 0 20px rgba(255, 75, 130, 0.8), 0 0 30px rgba(138, 43, 226, 0.6);
+    }
+  }
+}
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  @apply bg-[#030303] text-white min-h-screen overflow-x-hidden font-body;
+  -webkit-font-smoothing: antialiased;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-dark {
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.gradient-text {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-[#ff4b82] to-[#8a2be2];
+}
+
+.btn-glow {
+  @apply relative overflow-hidden transition-all duration-300;
+  box-shadow: 0 0 15px rgba(255, 75, 130, 0.3);
+}
+
+.btn-glow:hover {
+  box-shadow: 0 0 25px rgba(255, 75, 130, 0.5), 0 0 40px rgba(138, 43, 226, 0.4);
+  transform: translateY(-2px);
+}
+
+.input-glow:focus {
+  @apply outline-none border-[#ff4b82]/50;
+  box-shadow: 0 0 15px rgba(255, 75, 130, 0.3);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-[#0f111a];
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-white/10 rounded-full hover:bg-white/20 transition-colors;
+}
