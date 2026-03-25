@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {
   Hero,
   Categories,
@@ -11,12 +11,38 @@ import {
   FloatingWhatsApp,
   PolicyModal
 } from './components/CustomOrderForm';
-import { Menu } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 
 function App() {
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [policyType, setPolicyType] = useState<'privacy' | 'terms' | null>(null);
+  const [activeSection, setActiveSection] = useState('home');
+
+  useEffect(() => {
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.1,
+    };
+
+    const handleReveal = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+          if (entry.target.id) {
+            setActiveSection(entry.target.id);
+          }
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(handleReveal, observerOptions);
+    const elements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, section[id]');
+    elements.forEach((el) => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
 
   const privacyContent = (
     <>
@@ -68,10 +94,10 @@ function App() {
         </div>
 
         <div className="hidden lg:flex items-center gap-10 text-xs font-bold uppercase tracking-[0.2em] text-white/40">
-          <a href="#" className="hover:text-[#ff4b82] transition-colors text-white">Home</a>
-          <a href="#gallery" className="hover:text-[#ff4b82] transition-colors">Gallery</a>
-          <a href="#occasions" className="hover:text-[#ff4b82] transition-colors">Occasions</a>
-          <a href="#about" className="hover:text-[#ff4b82] transition-colors">About</a>
+          <a href="#" className={`hover:text-[#ff4b82] transition-colors ${activeSection === 'home' ? 'text-white border-b-2 border-[#ff4b82]' : ''}`}>Home</a>
+          <a href="#gallery" className={`hover:text-[#ff4b82] transition-colors ${activeSection === 'gallery' ? 'text-white border-b-2 border-[#ff4b82]' : ''}`}>Gallery</a>
+          <a href="#occasions" className={`hover:text-[#ff4b82] transition-colors ${activeSection === 'occasions' ? 'text-white border-b-2 border-[#ff4b82]' : ''}`}>Occasions</a>
+          <a href="#about" className={`hover:text-[#ff4b82] transition-colors ${activeSection === 'about' ? 'text-white border-b-2 border-[#ff4b82]' : ''}`}>About</a>
         </div>
 
         <div className="flex items-center gap-2 md:gap-6">

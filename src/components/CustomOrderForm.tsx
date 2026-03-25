@@ -203,7 +203,7 @@ export const Categories = () => {
 
   return (
     <section className="py-10 md:py-20 px-4 md:px-6 max-w-7xl mx-auto optimize-gpu">
-      <div className="text-center mb-8 md:mb-12">
+      <div className="text-center mb-8 md:mb-12 reveal">
         <h2 className="text-3xl md:text-5xl font-heading font-bold mb-2">Curated Categories</h2>
         <div className="w-24 h-1 bg-gradient-to-r from-[#ff4b82] to-[#8a2be2] mx-auto" />
       </div>
@@ -211,8 +211,8 @@ export const Categories = () => {
         {cats.map((cat, i) => (
           <div
             key={i}
-            className="group relative h-48 md:h-80 rounded-2xl md:rounded-3xl overflow-hidden cursor-pointer optimize-gpu opacity-0 animate-[fadeIn_0.5s_ease-out_forwards]"
-            style={{ animationDelay: `${i * 0.05}s` }}
+            className="group relative h-48 md:h-80 rounded-2xl md:rounded-3xl overflow-hidden cursor-pointer optimize-gpu reveal"
+            style={{ animationDelay: `${i * 0.1}s` }}
           >
             <img
               src={cat.img}
@@ -220,8 +220,8 @@ export const Categories = () => {
               loading="lazy"
               className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-            <div className="absolute bottom-4 left-4 md:bottom-6 md:left-6">
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent transition-opacity group-hover:opacity-60" />
+            <div className="absolute bottom-4 left-4 md:bottom-6 md:left-6 transition-transform duration-300 group-hover:-translate-y-2">
               <div className="p-2 md:p-3 bg-white/10 backdrop-blur-md rounded-xl md:rounded-2xl border border-white/20 mb-2 md:mb-3 w-fit">
                 <cat.icon size={20} className="text-[#ff4b82]" />
               </div>
@@ -252,7 +252,7 @@ export const Gallery = () => {
   }, []);
 
   return (
-    <section className="py-10 md:py-24 px-4 md:px-6 max-w-7xl mx-auto">
+    <section id="gallery" className="py-10 md:py-24 px-4 md:px-6 max-w-7xl mx-auto reveal">
       <div className="text-center mb-10 md:mb-16">
         <h2 className="text-3xl md:text-5xl font-heading font-bold mb-4">Curated Showcase</h2>
         <p className="text-white/40 font-medium italic text-base md:text-lg">Handpicked masterpieces, crafted for you.</p>
@@ -305,9 +305,9 @@ export const Gallery = () => {
 
 // 5. ABOUT SECTION
 export const About = () => (
-  <section className="py-12 md:py-24 px-4 md:px-6 bg-white/[0.01] optimize-gpu" id="about">
+  <section id="about" className="py-12 md:py-24 px-4 md:px-6 bg-white/[0.01] optimize-gpu reveal">
     <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-8 md:gap-16">
-      <div className="flex-1 relative w-full opacity-0 animate-[fadeIn_0.5s_ease-out_forwards]">
+      <div className="flex-1 relative w-full reveal-left">
         <div className="absolute -top-4 md:-top-6 -left-4 md:-left-6 w-32 md:w-40 h-32 md:h-40 bg-[#ff4b82] rounded-full filter blur-[60px] md:blur-[100px] opacity-20" />
         <img
           src="https://images.unsplash.com/photo-1513201099705-a9746e1e201f?q=80&w=800&auto=format&fit=crop"
@@ -316,7 +316,7 @@ export const About = () => (
           loading="lazy"
         />
       </div>
-      <div className="flex-1 space-y-4 md:space-y-6 text-center md:text-left opacity-0 animate-[fadeIn_0.5s_ease-out_forwards_0.2s]">
+      <div className="flex-1 space-y-4 md:space-y-6 text-center md:text-left reveal-right">
         <h2 className="text-3xl md:text-5xl font-heading font-bold gradient-text">Our Story</h2>
         <div className="space-y-3 md:space-y-4 text-base md:text-lg text-white/60 leading-relaxed font-medium">
           <p>
@@ -833,13 +833,13 @@ Request: ${formData.request}`;
 // --- MAIN PAGE SECTIONS ---
 
 export const Hero = ({ onOpenForm }: { onOpenForm: () => void }) => (
-  <section className="relative min-h-[60vh] md:min-h-[85vh] flex items-center justify-center px-4 md:px-6 pt-24 md:pt-32 pb-12 md:pb-20 overflow-hidden optimize-gpu">
+  <section id="home" className="relative min-h-[60vh] md:min-h-[85vh] flex items-center justify-center px-4 md:px-6 pt-24 md:pt-32 pb-12 md:pb-20 overflow-hidden optimize-gpu">
     {/* Static Background Elements */}
     <div className="absolute top-0 -left-20 w-48 md:w-96 h-48 md:h-96 bg-[#ff4b82] rounded-full mix-blend-screen opacity-10 blur-[80px]" />
     <div className="absolute bottom-0 -right-20 w-64 md:w-[500px] h-64 md:h-[500px] bg-[#8a2be2] rounded-full mix-blend-screen opacity-10 blur-[100px]" />
 
     <div className="relative z-10 text-center max-w-5xl mx-auto">
-      <div className="opacity-0 animate-[fadeIn_0.5s_ease-out_forwards]">
+      <div className="reveal">
         <div className="inline-flex items-center gap-2 px-4 md:px-6 py-1.5 rounded-full bg-white/5 border border-white/10 text-[10px] md:text-sm font-bold text-white/60 mb-3 md:mb-4 backdrop-blur-2xl uppercase tracking-[0.15em] md:tracking-[0.2em]">
           <Sparkles size={12} className="text-yellow-400" />
           <span>Handcrafted Luxury Gifts</span>
@@ -855,7 +855,7 @@ export const Hero = ({ onOpenForm }: { onOpenForm: () => void }) => (
         <div className="flex justify-center px-4 md:px-0">
           <button
             onClick={onOpenForm}
-            className="w-full md:w-auto px-8 md:px-12 py-4 md:py-5 bg-gradient-to-r from-[#ff4b82] to-[#8a2be2] rounded-full font-bold text-white shadow-2xl hover:scale-105 transition-all duration-300 btn-glow text-lg md:text-xl active:scale-95"
+            className="w-full md:w-auto px-8 md:px-12 py-4 md:py-5 bg-gradient-to-r from-[#ff4b82] to-[#8a2be2] rounded-full font-bold text-white shadow-2xl hover:scale-105 transition-all duration-300 btn-glow text-lg md:text-xl active:scale-95 click-ripple"
           >
             Get Your Product Customised 💝
           </button>
@@ -875,8 +875,8 @@ export const Occasions = ({ onOpenForm }: { onOpenForm: () => void }) => {
   ];
 
   return (
-    <section className="py-10 md:py-20 px-4 md:px-6 max-w-7xl mx-auto optimize-gpu">
-      <div className="text-center mb-8 md:mb-12">
+    <section id="occasions" className="py-10 md:py-20 px-4 md:px-6 max-w-7xl mx-auto optimize-gpu">
+      <div className="text-center mb-8 md:mb-12 reveal">
         <h2 className="text-3xl md:text-5xl font-heading font-bold mb-4">Occasions to Celebrate</h2>
         <p className="text-white/40 font-medium italic text-base md:text-lg">Find the perfect gift for every milestone.</p>
       </div>
@@ -884,7 +884,7 @@ export const Occasions = ({ onOpenForm }: { onOpenForm: () => void }) => {
         {occasions.map((occ, i) => (
           <div key={i} className={cn("flex flex-col md:flex-row items-center gap-8 md:gap-16 text-center md:text-left optimize-gpu", i % 2 !== 0 && "md:flex-row-reverse")}>
             <div
-              className="flex-1 space-y-4 md:space-y-6 order-2 md:order-none opacity-0 animate-[fadeIn_0.5s_ease-out_forwards]"
+              className="flex-1 space-y-4 md:space-y-6 order-2 md:order-none reveal-left"
               style={{ animationDelay: `${i * 0.1}s` }}
             >
               <h2 className="text-3xl md:text-6xl font-heading font-bold">{occ.title}</h2>
@@ -892,14 +892,14 @@ export const Occasions = ({ onOpenForm }: { onOpenForm: () => void }) => {
               <div className="flex justify-center md:justify-start px-4 md:px-0">
                 <button
                   onClick={onOpenForm}
-                  className="w-full md:w-auto px-8 py-3 md:py-4 bg-gradient-to-r from-[#ff4b82] to-[#8a2be2] rounded-full font-bold text-white shadow-lg hover:scale-105 transition-all duration-300 btn-glow text-base md:text-lg active:scale-95"
+                  className="w-full md:w-auto px-8 py-3 md:py-4 bg-gradient-to-r from-[#ff4b82] to-[#8a2be2] rounded-full font-bold text-white shadow-lg hover:scale-105 transition-all duration-300 btn-glow text-base md:text-lg active:scale-95 click-ripple"
                 >
                   Get Your Product Customised 💝
                 </button>
               </div>
             </div>
             <div
-              className="flex-1 w-full aspect-[4/3] rounded-[30px] md:rounded-[40px] overflow-hidden shadow-2xl border border-white/5 order-1 md:order-none opacity-0 animate-[fadeIn_0.5s_ease-out_forwards]"
+              className="flex-1 w-full aspect-[4/3] rounded-[30px] md:rounded-[40px] overflow-hidden shadow-2xl border border-white/5 order-1 md:order-none reveal-right"
               style={{ animationDelay: `${i * 0.1 + 0.1}s` }}
             >
               <img
@@ -917,12 +917,12 @@ export const Occasions = ({ onOpenForm }: { onOpenForm: () => void }) => {
 };
 
 export const Testimonials = () => (
-  <section className="py-12 md:py-20 px-6 bg-white/[0.01]">
+  <section className="py-12 md:py-20 px-6 bg-white/[0.01] reveal">
     <div className="max-w-7xl mx-auto text-center">
       <h2 className="text-3xl md:text-5xl font-heading font-bold mb-8 md:mb-12">Loved by Thousands</h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
         {[1, 2, 3].map((_, i) => (
-          <div key={i} className="glass p-6 md:p-10 rounded-[30px] md:rounded-[40px] text-left border border-white/5 hover:border-white/10 transition-colors group">
+          <div key={i} className="glass p-6 md:p-10 rounded-[30px] md:rounded-[40px] text-left border border-white/5 hover:border-white/10 transition-colors group hover-lift reveal" style={{ animationDelay: `${i * 0.2}s` }}>
             <Quote className="text-[#ff4b82]/20 mb-4 md:mb-6 group-hover:text-[#ff4b82]/40 transition-colors" size={32} />
             <p className="text-base md:text-lg text-white/60 mb-6 md:mb-8 italic font-medium leading-relaxed">
               "The resin frame I ordered for my sister's birthday was absolutely stunning. The attention to detail is unmatched!"
@@ -944,9 +944,9 @@ export const Testimonials = () => (
 );
 
 export const InstagramFeed = () => (
-  <section className="py-12 md:py-20 px-6 max-w-7xl mx-auto text-center">
+  <section className="py-12 md:py-20 px-6 max-w-7xl mx-auto text-center reveal">
     <div className="flex flex-col items-center gap-4 md:gap-6 mb-8 md:mb-12">
-      <div className="p-3 md:p-4 bg-gradient-to-br from-[#ff4b82] to-[#8a2be2] rounded-2xl md:rounded-3xl text-white shadow-xl">
+      <div className="p-3 md:p-4 bg-gradient-to-br from-[#ff4b82] to-[#8a2be2] rounded-2xl md:rounded-3xl text-white shadow-xl hover-scale cursor-pointer">
         <Camera size={24} />
       </div>
       <h2 className="text-3xl md:text-5xl font-heading font-bold">Follow Our Journey</h2>
@@ -961,11 +961,12 @@ export const InstagramFeed = () => (
         'https://images.unsplash.com/photo-1618354691792-d1d42acfd860?q=80&w=800&auto=format&fit=crop',
         'https://images.unsplash.com/photo-1516589174184-c685266e430b?q=80&w=800&auto=format&fit=crop'
       ].map((url, i) => (
-        <div key={i} className="min-w-[240px] md:min-w-[300px] h-[240px] md:h-[300px] rounded-2xl md:rounded-3xl overflow-hidden border border-white/5 relative group cursor-pointer">
+        <div key={i} className="min-w-[240px] md:min-w-[300px] h-[240px] md:h-[300px] rounded-2xl md:rounded-3xl overflow-hidden border border-white/5 relative group cursor-pointer reveal" style={{ animationDelay: `${i * 0.1}s` }}>
           <img
             src={url}
             className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
             alt="Instagram"
+            loading="lazy"
           />
           <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
             <Camera className="text-white" size={24} />
@@ -974,14 +975,14 @@ export const InstagramFeed = () => (
       ))}
     </div>
     <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8 md:mt-12">
-      <button className="w-full sm:w-auto px-10 py-4 border border-white/10 rounded-full font-bold hover:bg-white/5 transition-colors text-sm">
+      <button className="w-full sm:w-auto px-10 py-4 border border-white/10 rounded-full font-bold hover:bg-white/5 transition-colors text-sm click-ripple">
         Follow on Instagram
       </button>
       <a
         href="https://wa.me/+91XXXXXXXXXX"
         target="_blank"
         rel="noopener noreferrer"
-        className="w-full sm:w-auto p-4 bg-[#25D366] text-white rounded-full shadow-xl hover:scale-110 transition-transform duration-300 btn-glow flex items-center justify-center"
+        className="w-full sm:w-auto p-4 bg-[#25D366] text-white rounded-full shadow-xl hover:scale-110 transition-transform duration-300 btn-glow flex items-center justify-center click-ripple"
       >
         <MessageSquare size={24} />
       </a>
