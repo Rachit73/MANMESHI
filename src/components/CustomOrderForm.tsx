@@ -209,12 +209,17 @@ export const Categories = () => {
       </div>
       <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-5 gap-4 md:gap-6">
         {cats.map((cat, i) => (
-          <motion.div
+          <div
             key={i}
-            whileHover={{ y: -10 }}
-            className="group relative h-48 md:h-80 rounded-2xl md:rounded-3xl overflow-hidden cursor-pointer"
+            className="group relative h-48 md:h-80 rounded-2xl md:rounded-3xl overflow-hidden cursor-pointer optimize-gpu opacity-0 animate-[fadeIn_0.5s_ease-out_forwards]"
+            style={{ animationDelay: `${i * 0.05}s` }}
           >
-            <img src={cat.img} alt={cat.name} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+            <img
+              src={cat.img}
+              alt={cat.name}
+              loading="lazy"
+              className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
             <div className="absolute bottom-4 left-4 md:bottom-6 md:left-6">
               <div className="p-2 md:p-3 bg-white/10 backdrop-blur-md rounded-xl md:rounded-2xl border border-white/20 mb-2 md:mb-3 w-fit">
@@ -222,7 +227,7 @@ export const Categories = () => {
               </div>
               <h3 className="text-sm md:text-xl font-bold text-white">{cat.name}</h3>
             </div>
-          </motion.div>
+          </div>
         ))}
       </div>
     </section>
@@ -831,16 +836,12 @@ Request: ${formData.request}`;
 
 export const Hero = ({ onOpenForm }: { onOpenForm: () => void }) => (
   <section className="relative min-h-screen flex items-center justify-center px-4 md:px-6 pt-20 overflow-hidden optimize-gpu">
-    {/* Simplified Background Elements */}
+    {/* Static Background Elements (Faster than animations) */}
     <div className="absolute top-20 -left-20 w-48 md:w-96 h-48 md:h-96 bg-[#ff4b82] rounded-full mix-blend-screen opacity-10 blur-[80px]" />
     <div className="absolute bottom-20 -right-20 w-64 md:w-[500px] h-64 md:h-[500px] bg-[#8a2be2] rounded-full mix-blend-screen opacity-10 blur-[100px]" />
 
     <div className="relative z-10 text-center max-w-5xl mx-auto py-12 md:py-0">
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-      >
+      <div className="opacity-0 animate-[fadeIn_0.5s_ease-out_forwards]">
         <div className="inline-flex items-center gap-2 px-4 md:px-6 py-2 md:py-3 rounded-full bg-white/5 border border-white/10 text-[10px] md:text-sm font-bold text-white/60 mb-6 md:mb-10 backdrop-blur-2xl uppercase tracking-[0.15em] md:tracking-[0.2em]">
           <Sparkles size={12} className="text-yellow-400" />
           <span>Handcrafted Luxury Gifts</span>
@@ -856,12 +857,12 @@ export const Hero = ({ onOpenForm }: { onOpenForm: () => void }) => (
         <div className="flex justify-center px-4 md:px-0">
           <button
             onClick={onOpenForm}
-            className="w-full md:w-auto px-8 md:px-12 py-5 md:py-6 bg-gradient-to-r from-[#ff4b82] to-[#8a2be2] rounded-full font-bold text-white shadow-2xl hover:scale-105 transition-all duration-300 btn-glow text-lg md:text-xl"
+            className="w-full md:w-auto px-8 md:px-12 py-5 md:py-6 bg-gradient-to-r from-[#ff4b82] to-[#8a2be2] rounded-full font-bold text-white shadow-2xl hover:scale-105 transition-all duration-300 btn-glow text-lg md:text-xl active:scale-95"
           >
             Get Your Product Customised 💝
           </button>
         </div>
-      </motion.div>
+      </div>
     </div>
   </section>
 );
@@ -884,31 +885,32 @@ export const Occasions = ({ onOpenForm }: { onOpenForm: () => void }) => {
       <div className="grid grid-cols-1 gap-16 md:gap-24">
         {occasions.map((occ, i) => (
           <div key={i} className={cn("flex flex-col md:flex-row items-center gap-10 md:gap-16 text-center md:text-left optimize-gpu", i % 2 !== 0 && "md:flex-row-reverse")}>
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              className="flex-1 space-y-6 md:space-y-8 order-2 md:order-none"
+            <div
+              className="flex-1 space-y-6 md:space-y-8 order-2 md:order-none opacity-0 animate-[fadeIn_0.5s_ease-out_forwards]"
+              style={{ animationDelay: `${i * 0.1}s` }}
             >
               <h2 className="text-4xl md:text-6xl font-heading font-bold">{occ.title}</h2>
               <p className="text-base md:text-xl text-white/40 leading-relaxed font-medium px-4 md:px-0">{occ.desc}</p>
               <div className="flex justify-center md:justify-start px-4 md:px-0">
                 <button
                   onClick={onOpenForm}
-                  className="w-full md:w-auto px-8 py-4 md:py-5 bg-gradient-to-r from-[#ff4b82] to-[#8a2be2] rounded-full font-bold text-white shadow-lg hover:scale-105 transition-all duration-300 btn-glow text-base md:text-lg"
+                  className="w-full md:w-auto px-8 py-4 md:py-5 bg-gradient-to-r from-[#ff4b82] to-[#8a2be2] rounded-full font-bold text-white shadow-lg hover:scale-105 transition-all duration-300 btn-glow text-base md:text-lg active:scale-95"
                 >
                   Get Your Product Customised 💝
                 </button>
               </div>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true, margin: "-100px" }}
-              className="flex-1 w-full aspect-[4/3] rounded-[30px] md:rounded-[40px] overflow-hidden shadow-2xl border border-white/5 order-1 md:order-none"
+            </div>
+            <div
+              className="flex-1 w-full aspect-[4/3] rounded-[30px] md:rounded-[40px] overflow-hidden shadow-2xl border border-white/5 order-1 md:order-none opacity-0 animate-[fadeIn_0.5s_ease-out_forwards]"
+              style={{ animationDelay: `${i * 0.1 + 0.1}s` }}
             >
-              <img src={occ.img} alt={occ.title} className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />
-            </motion.div>
+              <img
+                src={occ.img}
+                alt={occ.title}
+                loading="lazy"
+                className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+              />
+            </div>
           </div>
         ))}
       </div>
