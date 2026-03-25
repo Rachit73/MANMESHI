@@ -202,25 +202,25 @@ export const Categories = () => {
   ];
 
   return (
-    <section className="py-24 px-6 max-w-7xl mx-auto">
-      <div className="text-center mb-16">
-        <h2 className="text-4xl md:text-5xl font-heading font-bold mb-4">Curated Categories</h2>
+    <section className="py-12 md:py-24 px-4 md:px-6 max-w-7xl mx-auto">
+      <div className="text-center mb-12 md:mb-16">
+        <h2 className="text-3xl md:text-5xl font-heading font-bold mb-4">Curated Categories</h2>
         <div className="w-24 h-1 bg-gradient-to-r from-[#ff4b82] to-[#8a2be2] mx-auto" />
       </div>
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+      <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-5 gap-4 md:gap-6">
         {cats.map((cat, i) => (
           <motion.div
             key={i}
             whileHover={{ y: -10 }}
-            className="group relative h-80 rounded-3xl overflow-hidden cursor-pointer"
+            className="group relative h-48 md:h-80 rounded-2xl md:rounded-3xl overflow-hidden cursor-pointer"
           >
             <img src={cat.img} alt={cat.name} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-            <div className="absolute bottom-6 left-6">
-              <div className="p-3 bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 mb-3 w-fit">
-                <cat.icon size={20} className="text-[#ff4b82]" />
+            <div className="absolute bottom-4 left-4 md:bottom-6 md:left-6">
+              <div className="p-2 md:p-3 bg-white/10 backdrop-blur-md rounded-xl md:rounded-2xl border border-white/20 mb-2 md:mb-3 w-fit">
+                <cat.icon size={16} md:size={20} className="text-[#ff4b82]" />
               </div>
-              <h3 className="text-xl font-bold text-white">{cat.name}</h3>
+              <h3 className="text-sm md:text-xl font-bold text-white">{cat.name}</h3>
             </div>
           </motion.div>
         ))}
@@ -247,12 +247,12 @@ export const Gallery = () => {
   }, []);
 
   return (
-    <section className="py-24 px-6 max-w-7xl mx-auto">
-      <div className="text-center mb-16">
-        <h2 className="text-4xl md:text-5xl font-heading font-bold mb-4">Curated Showcase</h2>
-        <p className="text-white/40 font-medium italic">Handpicked masterpieces, crafted for you.</p>
+    <section className="py-12 md:py-24 px-4 md:px-6 max-w-7xl mx-auto">
+      <div className="text-center mb-12 md:mb-16">
+        <h2 className="text-3xl md:text-5xl font-heading font-bold mb-4">Curated Showcase</h2>
+        <p className="text-white/40 font-medium italic text-sm md:text-base">Handpicked masterpieces, crafted for you.</p>
       </div>
-      <div className="relative h-[400px] md:h-[600px] rounded-[40px] overflow-hidden shadow-2xl border border-white/10 group">
+      <div className="relative h-[400px] md:h-[600px] rounded-[30px] md:rounded-[40px] overflow-hidden shadow-2xl border border-white/10 group">
         <AnimatePresence mode="wait">
           <motion.img
             key={index}
@@ -267,29 +267,29 @@ export const Gallery = () => {
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
 
         {/* Navigation Dots */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-3 z-10">
+        <div className="absolute bottom-6 md:bottom-8 left-1/2 -translate-x-1/2 flex gap-2 md:gap-3 z-10">
           {images.map((_, i) => (
             <button
               key={i}
               onClick={() => setIndex(i)}
               className={cn(
-                "w-2.5 h-2.5 rounded-full transition-all duration-300",
-                i === index ? "bg-[#ff4b82] w-8" : "bg-white/20 hover:bg-white/40"
+                "w-2 md:w-2.5 h-2 md:h-2.5 rounded-full transition-all duration-300",
+                i === index ? "bg-[#ff4b82] w-6 md:w-8" : "bg-white/20 hover:bg-white/40"
               )}
             />
           ))}
         </div>
 
-        {/* Navigation Arrows */}
+        {/* Navigation Arrows (Hidden on mobile) */}
         <button
           onClick={() => setIndex((prev) => (prev - 1 + images.length) % images.length)}
-          className="absolute left-6 top-1/2 -translate-y-1/2 p-4 bg-black/20 backdrop-blur-md rounded-full border border-white/10 text-white opacity-0 group-hover:opacity-100 transition-opacity"
+          className="hidden md:flex absolute left-6 top-1/2 -translate-y-1/2 p-4 bg-black/20 backdrop-blur-md rounded-full border border-white/10 text-white opacity-0 group-hover:opacity-100 transition-opacity"
         >
           <ChevronLeft size={24} />
         </button>
         <button
           onClick={() => setIndex((prev) => (prev + 1) % images.length)}
-          className="absolute right-6 top-1/2 -translate-y-1/2 p-4 bg-black/20 backdrop-blur-md rounded-full border border-white/10 text-white opacity-0 group-hover:opacity-100 transition-opacity"
+          className="hidden md:flex absolute right-6 top-1/2 -translate-y-1/2 p-4 bg-black/20 backdrop-blur-md rounded-full border border-white/10 text-white opacity-0 group-hover:opacity-100 transition-opacity"
         >
           <ChevronRight size={24} />
         </button>
@@ -300,37 +300,37 @@ export const Gallery = () => {
 
 // 5. ABOUT SECTION
 export const About = () => (
-  <section className="py-24 px-6 bg-white/[0.01]">
-    <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-16">
-      <div className="flex-1 relative">
-        <div className="absolute -top-10 -left-10 w-40 h-40 bg-[#ff4b82] rounded-full filter blur-[100px] opacity-20" />
+  <section className="py-12 md:py-24 px-4 md:px-6 bg-white/[0.01]" id="about">
+    <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-10 md:gap-16">
+      <div className="flex-1 relative w-full">
+        <div className="absolute -top-6 md:-top-10 -left-6 md:-left-10 w-32 md:w-40 h-32 md:h-40 bg-[#ff4b82] rounded-full filter blur-[60px] md:blur-[100px] opacity-20" />
         <img
           src="https://images.unsplash.com/photo-1513201099705-a9746e1e201f?q=80&w=800&auto=format&fit=crop"
-          className="rounded-[40px] shadow-2xl relative z-10 border border-white/5"
+          className="rounded-2xl md:rounded-[40px] shadow-2xl relative z-10 border border-white/5 w-full object-cover aspect-[4/3] md:aspect-auto"
           alt="Our Story"
         />
       </div>
-      <div className="flex-1 space-y-8">
-        <h2 className="text-5xl font-heading font-bold gradient-text">Our Story</h2>
-        <div className="space-y-6 text-lg text-white/60 leading-relaxed font-medium">
+      <div className="flex-1 space-y-6 md:space-y-8 text-center md:text-left">
+        <h2 className="text-3xl md:text-5xl font-heading font-bold gradient-text">Our Story</h2>
+        <div className="space-y-4 md:space-y-6 text-base md:text-lg text-white/60 leading-relaxed font-medium">
           <p>
             It all started with a single resin frame and a dream to capture the ephemeral beauty of a single moment. "The Manmeshi" was born out of a passion for storytelling through art.
           </p>
           <p>
-            Our founder, Vineet, began experimenting with resin in a small studio, driven by the belief that every gift should be as unique as the memory it represents. What started as a personal hobby soon blossomed into a luxury gifting brand, trusted by thousands for its meticulous craftsmanship and emotional depth.
+            Our founder, Vineet, began experimenting with resin in a small studio, driven by the belief that every gift should be as unique as the memory it represents. What started as a personal hobby soon blossomed into a luxury gifting brand.
           </p>
           <p>
             Today, we are a team of passionate artisans who pour our hearts into every creation, ensuring that each piece from The Manmeshi is not just a gift, but a legacy of love.
           </p>
         </div>
-        <div className="flex gap-12 pt-6 border-t border-white/5">
+        <div className="flex justify-center md:justify-start gap-8 md:gap-12 pt-6 border-t border-white/5">
           <div>
-            <div className="text-3xl font-bold text-white mb-1">5000+</div>
-            <div className="text-sm font-bold uppercase tracking-widest text-white/20">Happy Gifters</div>
+            <div className="text-2xl md:text-3xl font-bold text-white mb-1">5000+</div>
+            <div className="text-[10px] md:text-sm font-bold uppercase tracking-widest text-white/20">Happy Gifters</div>
           </div>
           <div>
-            <div className="text-3xl font-bold text-white mb-1">100%</div>
-            <div className="text-sm font-bold uppercase tracking-widest text-white/20">Personalised</div>
+            <div className="text-2xl md:text-3xl font-bold text-white mb-1">100%</div>
+            <div className="text-[10px] md:text-sm font-bold uppercase tracking-widest text-white/20">Personalised</div>
           </div>
         </div>
       </div>
@@ -494,39 +494,39 @@ Request: ${formData.request}`;
     <>
       <AnimatePresence>
         {isOpen && (
-          <div className="fixed inset-0 z-[110] flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
+          <div className="fixed inset-0 z-[110] flex items-center justify-center p-2 md:p-4 bg-black/80 backdrop-blur-md">
             <motion.div
               initial={{ opacity: 0, scale: 0.9, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              className="relative w-full max-w-xl overflow-hidden glass-dark rounded-[40px] shadow-2xl border border-white/10"
+              className="relative w-full max-w-xl max-h-[90vh] overflow-y-auto glass-dark rounded-[30px] md:rounded-[40px] shadow-2xl border border-white/10 no-scrollbar"
             >
               <button
                 onClick={resetForm}
-                className="absolute top-8 right-8 p-2 text-white/30 hover:text-white transition-colors z-10 bg-white/5 rounded-full"
+                className="absolute top-4 right-4 md:top-8 md:right-8 p-2 text-white/30 hover:text-white transition-colors z-10 bg-white/5 rounded-full"
               >
-                <X size={20} />
+                <X size={18} md:size={20} />
               </button>
 
-              <div className="p-10 md:p-14">
+              <div className="p-6 md:p-14">
                 {!isSubmitted ? (
                   <>
-                    <div className="mb-10">
-                      <h2 className="text-4xl font-heading font-bold gradient-text mb-3">Custom Creation</h2>
-                      <p className="text-white/50 font-medium">Tell us about your dream gift ✨</p>
-                      <div className="mt-8 h-1.5 w-full bg-white/5 rounded-full overflow-hidden">
+                    <div className="mb-6 md:mb-10">
+                      <h2 className="text-3xl md:text-4xl font-heading font-bold gradient-text mb-2 md:mb-3">Custom Creation</h2>
+                      <p className="text-white/50 text-sm md:text-base font-medium">Tell us about your dream gift ✨</p>
+                      <div className="mt-6 md:mt-8 h-1 w-full bg-white/5 rounded-full overflow-hidden">
                         <motion.div
                           initial={{ width: 0 }}
                           animate={{ width: `${progress}%` }}
                           className="h-full bg-gradient-to-r from-[#ff4b82] to-[#8a2be2]"
                         />
                       </div>
-                      <div className="mt-3 text-xs text-white/30 font-bold uppercase tracking-widest">
+                      <div className="mt-3 text-[10px] text-white/30 font-bold uppercase tracking-widest">
                         Step {step} of {totalSteps}
                       </div>
                     </div>
 
-                    <form onSubmit={handleSubmit} className="space-y-8">
+                    <form onSubmit={handleSubmit} className="space-y-6 md:space-y-8">
                       <AnimatePresence mode="wait">
                         {step === 1 && (
                           <motion.div
@@ -534,37 +534,37 @@ Request: ${formData.request}`;
                             initial={{ x: 20, opacity: 0 }}
                             animate={{ x: 0, opacity: 1 }}
                             exit={{ x: -20, opacity: 0 }}
-                            className="space-y-6"
+                            className="space-y-4 md:space-y-6"
                           >
                             <div className="space-y-2">
-                              <label className="block text-sm font-bold text-white/60 uppercase tracking-wider">Your Name</label>
+                              <label className="block text-xs md:text-sm font-bold text-white/60 uppercase tracking-wider">Your Name</label>
                               <input
                                 required
                                 type="text"
                                 value={formData.name}
                                 onChange={(e) => updateFormData({ name: e.target.value })}
                                 placeholder="Enter your full name"
-                                className="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-2xl text-white placeholder:text-white/20 input-glow font-medium"
+                                className="w-full px-4 md:px-6 py-3 md:py-4 bg-white/5 border border-white/10 rounded-xl md:rounded-2xl text-white placeholder:text-white/20 input-glow font-medium text-sm md:text-base"
                               />
                             </div>
                             <div className="space-y-2">
-                              <label className="block text-sm font-bold text-white/60 uppercase tracking-wider">WhatsApp Number</label>
+                              <label className="block text-xs md:text-sm font-bold text-white/60 uppercase tracking-wider">WhatsApp Number</label>
                               <input
                                 required
                                 type="tel"
                                 value={formData.contact}
                                 onChange={(e) => updateFormData({ contact: e.target.value })}
                                 placeholder="+91 XXXXX XXXXX"
-                                className="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-2xl text-white placeholder:text-white/20 input-glow font-medium"
+                                className="w-full px-4 md:px-6 py-3 md:py-4 bg-white/5 border border-white/10 rounded-xl md:rounded-2xl text-white placeholder:text-white/20 input-glow font-medium text-sm md:text-base"
                               />
                             </div>
                             <button
                               type="button"
                               onClick={nextStep}
                               disabled={!formData.name || !formData.contact}
-                              className="w-full py-5 mt-4 bg-gradient-to-r from-[#ff4b82] to-[#8a2be2] rounded-2xl font-bold text-lg flex items-center justify-center gap-3 hover:opacity-90 transition-opacity disabled:opacity-30 shadow-xl"
+                              className="w-full py-4 md:py-5 mt-2 md:mt-4 bg-gradient-to-r from-[#ff4b82] to-[#8a2be2] rounded-xl md:rounded-2xl font-bold text-base md:text-lg flex items-center justify-center gap-3 hover:opacity-90 transition-opacity disabled:opacity-30 shadow-xl"
                             >
-                              Continue <ArrowRight size={22} />
+                              Continue <ArrowRight size={20} md:size={22} />
                             </button>
                           </motion.div>
                         )}
@@ -575,10 +575,10 @@ Request: ${formData.request}`;
                             initial={{ x: 20, opacity: 0 }}
                             animate={{ x: 0, opacity: 1 }}
                             exit={{ x: -20, opacity: 0 }}
-                            className="space-y-8"
+                            className="space-y-6 md:space-y-8"
                           >
-                            <h3 className="text-2xl font-heading font-bold text-white text-center">Is this for a special occasion?</h3>
-                            <div className="grid grid-cols-2 gap-6">
+                            <h3 className="text-xl md:text-2xl font-heading font-bold text-white text-center">Is this for a special occasion?</h3>
+                            <div className="grid grid-cols-2 gap-4 md:gap-6">
                               {['Yes', 'No'].map((opt) => (
                                 <button
                                   key={opt}
@@ -588,7 +588,7 @@ Request: ${formData.request}`;
                                     setTimeout(nextStep, 300);
                                   }}
                                   className={cn(
-                                    "p-10 rounded-3xl border transition-all duration-500 text-2xl font-bold",
+                                    "p-6 md:p-10 rounded-2xl md:rounded-3xl border transition-all duration-500 text-xl md:text-2xl font-bold",
                                     formData.isSpecialOccasion === opt
                                       ? "bg-gradient-to-r from-[#ff4b82] to-[#8a2be2] border-transparent text-white shadow-2xl scale-105"
                                       : "bg-white/5 border-white/10 text-white/40 hover:border-white/30"
@@ -601,7 +601,7 @@ Request: ${formData.request}`;
                             <button
                               type="button"
                               onClick={prevStep}
-                              className="w-full py-4 text-white/20 hover:text-white transition-colors font-bold uppercase tracking-widest text-xs"
+                              className="w-full py-2 md:py-4 text-white/20 hover:text-white transition-colors font-bold uppercase tracking-widest text-[10px]"
                             >
                               ← Go Back
                             </button>
@@ -614,10 +614,10 @@ Request: ${formData.request}`;
                             initial={{ x: 20, opacity: 0 }}
                             animate={{ x: 0, opacity: 1 }}
                             exit={{ x: -20, opacity: 0 }}
-                            className="space-y-6"
+                            className="space-y-4 md:space-y-6"
                           >
-                            <h3 className="text-2xl font-heading font-bold text-white">Select the Occasion</h3>
-                            <div className="grid grid-cols-2 gap-4">
+                            <h3 className="text-xl md:text-2xl font-heading font-bold text-white">Select the Occasion</h3>
+                            <div className="grid grid-cols-2 gap-3 md:gap-4">
                               {[
                                 { id: 'Birthday', label: 'Birthday 🎂' },
                                 { id: 'Anniversary', label: 'Anniversary 💑' },
@@ -629,7 +629,7 @@ Request: ${formData.request}`;
                                   type="button"
                                   onClick={() => updateFormData({ occasion: occ.id })}
                                   className={cn(
-                                    "p-6 rounded-2xl border transition-all duration-300 text-left font-bold",
+                                    "p-4 md:p-6 rounded-xl md:rounded-2xl border transition-all duration-300 text-left font-bold text-sm md:text-base",
                                     formData.occasion === occ.id
                                       ? "bg-[#ff4b82]/20 border-[#ff4b82] text-white"
                                       : "bg-white/5 border-white/10 text-white/40 hover:border-white/30"
@@ -639,11 +639,11 @@ Request: ${formData.request}`;
                                 </button>
                               ))}
                             </div>
-                            <div className="flex gap-4 mt-6">
+                            <div className="flex gap-3 md:gap-4 mt-4 md:mt-6">
                               <button
                                 type="button"
                                 onClick={prevStep}
-                                className="flex-1 py-5 bg-white/5 rounded-2xl font-bold hover:bg-white/10 transition-colors"
+                                className="flex-1 py-4 md:py-5 bg-white/5 rounded-xl md:rounded-2xl font-bold hover:bg-white/10 transition-colors text-sm md:text-base"
                               >
                                 Back
                               </button>
@@ -651,9 +651,9 @@ Request: ${formData.request}`;
                                 type="button"
                                 onClick={nextStep}
                                 disabled={!formData.occasion}
-                                className="flex-[2] py-5 bg-gradient-to-r from-[#ff4b82] to-[#8a2be2] rounded-2xl font-bold flex items-center justify-center gap-2 hover:opacity-90 transition-opacity disabled:opacity-30 shadow-xl"
+                                className="flex-[2] py-4 md:py-5 bg-gradient-to-r from-[#ff4b82] to-[#8a2be2] rounded-xl md:rounded-2xl font-bold flex items-center justify-center gap-2 hover:opacity-90 transition-opacity disabled:opacity-30 shadow-xl text-sm md:text-base"
                               >
-                                Next Step <ArrowRight size={22} />
+                                Next Step <ArrowRight size={18} md:size={22} />
                               </button>
                             </div>
                           </motion.div>
@@ -665,10 +665,10 @@ Request: ${formData.request}`;
                             initial={{ x: 20, opacity: 0 }}
                             animate={{ x: 0, opacity: 1 }}
                             exit={{ x: -20, opacity: 0 }}
-                            className="space-y-6"
+                            className="space-y-4 md:space-y-6"
                           >
-                            <h3 className="text-2xl font-heading font-bold text-white">Choose Category</h3>
-                            <div className="grid grid-cols-2 gap-4">
+                            <h3 className="text-xl md:text-2xl font-heading font-bold text-white">Choose Category</h3>
+                            <div className="grid grid-cols-2 gap-3 md:gap-4">
                               {categoriesList.map((cat) => {
                                 const Icon = cat.icon;
                                 return (
@@ -677,28 +677,28 @@ Request: ${formData.request}`;
                                     type="button"
                                     onClick={() => updateFormData({ category: cat.label })}
                                     className={cn(
-                                      "p-5 rounded-3xl border flex flex-col items-center gap-4 transition-all duration-500",
+                                      "p-4 md:p-5 rounded-2xl md:rounded-3xl border flex flex-col items-center gap-2 md:gap-4 transition-all duration-500",
                                       formData.category === cat.label
                                         ? "bg-gradient-to-b from-[#ff4b82]/20 to-[#8a2be2]/20 border-[#ff4b82] text-white scale-105"
                                         : "bg-white/5 border-white/10 text-white/40 hover:border-white/30"
                                     )}
                                   >
                                     <div className={cn(
-                                      "p-4 rounded-2xl transition-colors duration-500",
+                                      "p-3 md:p-4 rounded-xl md:rounded-2xl transition-colors duration-500",
                                       formData.category === cat.label ? "bg-[#ff4b82] text-white" : "bg-white/5"
                                     )}>
-                                      <Icon size={28} />
+                                      <Icon size={20} md:size={28} />
                                     </div>
-                                    <span className="font-bold">{cat.label}</span>
+                                    <span className="font-bold text-xs md:text-base">{cat.label}</span>
                                   </button>
                                 );
                               })}
                             </div>
-                            <div className="flex gap-4 mt-6">
+                            <div className="flex gap-3 md:gap-4 mt-4 md:mt-6">
                               <button
                                 type="button"
                                 onClick={prevStep}
-                                className="flex-1 py-5 bg-white/5 rounded-2xl font-bold hover:bg-white/10 transition-colors"
+                                className="flex-1 py-4 md:py-5 bg-white/5 rounded-xl md:rounded-2xl font-bold hover:bg-white/10 transition-colors text-sm md:text-base"
                               >
                                 Back
                               </button>
@@ -706,9 +706,9 @@ Request: ${formData.request}`;
                                 type="button"
                                 onClick={nextStep}
                                 disabled={!formData.category}
-                                className="flex-[2] py-5 bg-gradient-to-r from-[#ff4b82] to-[#8a2be2] rounded-2xl font-bold flex items-center justify-center gap-2 hover:opacity-90 transition-opacity disabled:opacity-30 shadow-xl"
+                                className="flex-[2] py-4 md:py-5 bg-gradient-to-r from-[#ff4b82] to-[#8a2be2] rounded-xl md:rounded-2xl font-bold flex items-center justify-center gap-2 hover:opacity-90 transition-opacity disabled:opacity-30 shadow-xl text-sm md:text-base"
                               >
-                                Next Step <ArrowRight size={22} />
+                                Next Step <ArrowRight size={18} md:size={22} />
                               </button>
                             </div>
                           </motion.div>
@@ -720,20 +720,20 @@ Request: ${formData.request}`;
                             initial={{ x: 20, opacity: 0 }}
                             animate={{ x: 0, opacity: 1 }}
                             exit={{ x: -20, opacity: 0 }}
-                            className="space-y-6"
+                            className="space-y-4 md:space-y-6"
                           >
                             <div className="space-y-2">
-                              <label className="block text-sm font-bold text-white/60 uppercase tracking-wider">Special Requests</label>
+                              <label className="block text-xs md:text-sm font-bold text-white/60 uppercase tracking-wider">Special Requests</label>
                               <textarea
                                 value={formData.request}
                                 onChange={(e) => updateFormData({ request: e.target.value })}
-                                placeholder="Share your design ideas, messages, or theme..."
-                                className="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-2xl text-white placeholder:text-white/20 input-glow min-h-[140px] resize-none font-medium"
+                                placeholder="Share your design ideas..."
+                                className="w-full px-4 md:px-6 py-3 md:py-4 bg-white/5 border border-white/10 rounded-xl md:rounded-2xl text-white placeholder:text-white/20 input-glow min-h-[100px] md:min-h-[140px] resize-none font-medium text-sm md:text-base"
                               />
                             </div>
 
                             <div className="space-y-2">
-                              <label className="block text-sm font-bold text-white/60 uppercase tracking-wider">Reference Image (Optional)</label>
+                              <label className="block text-xs md:text-sm font-bold text-white/60 uppercase tracking-wider">Reference Image (Optional)</label>
                               <div className="relative group">
                                 <input
                                   type="file"
@@ -744,40 +744,37 @@ Request: ${formData.request}`;
                                 />
                                 <label
                                   htmlFor="image-upload"
-                                  className="flex flex-col items-center justify-center w-full p-8 border-2 border-dashed border-white/10 rounded-3xl bg-white/5 cursor-pointer hover:bg-white/10 hover:border-white/20 transition-all"
+                                  className="flex flex-col items-center justify-center w-full p-6 md:p-8 border-2 border-dashed border-white/10 rounded-2xl md:rounded-3xl bg-white/5 cursor-pointer hover:bg-white/10 hover:border-white/20 transition-all"
                                 >
                                   {imagePreview ? (
                                     <div className="relative w-full aspect-video">
-                                      <img src={imagePreview} alt="Preview" className="w-full h-full object-cover rounded-2xl" />
-                                      <div className="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl">
-                                        <Camera className="text-white" size={32} />
-                                      </div>
+                                      <img src={imagePreview} alt="Preview" className="w-full h-full object-cover rounded-xl md:rounded-2xl" />
                                     </div>
                                   ) : (
                                     <>
-                                      <div className="p-4 bg-white/5 rounded-full mb-4">
-                                        <Camera className="text-[#ff4b82]" size={32} />
+                                      <div className="p-3 md:p-4 bg-white/5 rounded-full mb-2 md:mb-4">
+                                        <Camera className="text-[#ff4b82]" size={24} md:size={32} />
                                       </div>
-                                      <span className="text-sm text-white/40 font-bold">Click to upload reference design</span>
+                                      <span className="text-xs md:text-sm text-white/40 font-bold">Click to upload reference design</span>
                                     </>
                                   )}
                                 </label>
                               </div>
                             </div>
 
-                            <div className="flex gap-4 mt-6">
+                            <div className="flex gap-3 md:gap-4 mt-4 md:mt-6">
                               <button
                                 type="button"
                                 onClick={prevStep}
-                                className="flex-1 py-5 bg-white/5 rounded-2xl font-bold hover:bg-white/10 transition-colors"
+                                className="flex-1 py-4 md:py-5 bg-white/5 rounded-xl md:rounded-2xl font-bold hover:bg-white/10 transition-colors text-sm md:text-base"
                               >
                                 Back
                               </button>
                               <button
                                 type="submit"
-                                className="flex-[2] py-5 bg-gradient-to-r from-[#ff4b82] to-[#8a2be2] rounded-2xl font-bold text-lg flex items-center justify-center gap-3 hover:opacity-90 transition-opacity btn-glow shadow-2xl"
+                                className="flex-[2] py-4 md:py-5 bg-gradient-to-r from-[#ff4b82] to-[#8a2be2] rounded-xl md:rounded-2xl font-bold text-base md:text-lg flex items-center justify-center gap-3 hover:opacity-90 transition-opacity btn-glow shadow-2xl text-sm md:text-base"
                               >
-                                Submit Request <Send size={22} />
+                                Submit Request <Send size={18} md:size={22} />
                               </button>
                             </div>
                           </motion.div>
@@ -789,38 +786,33 @@ Request: ${formData.request}`;
                   <motion.div
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    className="flex flex-col items-center text-center py-10"
+                    className="flex flex-col items-center text-center py-6 md:py-10"
                   >
-                    <div className="relative mb-10">
-                      <div className="w-32 h-32 bg-green-500/10 text-green-500 rounded-full flex items-center justify-center animate-pulse border border-green-500/20 mx-auto">
-                        <CheckCircle2 size={64} />
+                    <div className="relative mb-8 md:mb-10">
+                      <div className="w-24 h-24 md:w-32 md:h-32 bg-green-500/10 text-green-500 rounded-full flex items-center justify-center animate-pulse border border-green-500/20 mx-auto">
+                        <CheckCircle2 size={48} md:size={64} />
                       </div>
-                      <div className="absolute -top-2 -right-2 p-3 bg-[#25D366] text-white rounded-full shadow-lg">
-                        <MessageSquare size={24} />
+                      <div className="absolute -top-1 -right-1 md:-top-2 md:-right-2 p-2 md:p-3 bg-[#25D366] text-white rounded-full shadow-lg">
+                        <MessageSquare size={18} md:size={24} />
                       </div>
                     </div>
-                    <h2 className="text-4xl font-heading font-bold text-white mb-6">Request Received 💖</h2>
-                    <p className="text-white/50 mb-10 max-w-sm font-medium leading-relaxed">
+                    <h2 className="text-3xl md:text-4xl font-heading font-bold text-white mb-4 md:mb-6">Request Received 💖</h2>
+                    <p className="text-white/50 mb-8 md:mb-10 max-w-sm font-medium leading-relaxed text-sm md:text-base">
                       Your custom request has been successfully received. Our team will contact you shortly on WhatsApp to finalize your design.
                     </p>
                     <button
                       onClick={() => {
-                        const message = `Hi, I want to customise a product 💝
-Name: ${formData.name}
-Contact: ${formData.contact}
-Occasion: ${formData.isSpecialOccasion === 'Yes' ? formData.occasion : 'None'}
-Category: ${formData.category}
-Request: ${formData.request}`;
+                        const message = `Hi, I want to customise a product 💝\nName: ${formData.name}\nContact: ${formData.contact}\nOccasion: ${formData.isSpecialOccasion === 'Yes' ? formData.occasion : 'None'}\nCategory: ${formData.category}\nRequest: ${formData.request}`;
                         window.open(`https://wa.me/+91XXXXXXXXXX?text=${encodeURIComponent(message)}`, '_blank');
                       }}
-                      className="w-full py-5 bg-[#25D366] text-white rounded-2xl font-bold text-xl flex items-center justify-center gap-4 hover:scale-105 transition-transform shadow-2xl"
+                      className="w-full py-4 md:py-5 bg-[#25D366] text-white rounded-xl md:rounded-2xl font-bold text-lg md:text-xl flex items-center justify-center gap-4 hover:scale-105 transition-transform shadow-2xl"
                     >
-                      <MessageSquare size={28} />
+                      <MessageSquare size={24} md:size={28} />
                       Chat on WhatsApp
                     </button>
                     <button
                       onClick={resetForm}
-                      className="mt-8 text-white/20 hover:text-white transition-colors text-sm font-bold uppercase tracking-widest"
+                      className="mt-6 md:mt-8 text-white/20 hover:text-white transition-colors text-[10px] md:text-sm font-bold uppercase tracking-widest"
                     >
                       Return to Website
                     </button>
@@ -838,7 +830,7 @@ Request: ${formData.request}`;
 // --- MAIN PAGE SECTIONS ---
 
 export const Hero = ({ onOpenForm }: { onOpenForm: () => void }) => (
-  <section className="relative min-h-screen flex items-center justify-center px-6 pt-20 overflow-hidden">
+  <section className="relative min-h-screen flex items-center justify-center px-4 md:px-6 pt-20 overflow-hidden">
     {/* Parallax Background Elements */}
     <motion.div
       animate={{
@@ -846,7 +838,7 @@ export const Hero = ({ onOpenForm }: { onOpenForm: () => void }) => (
         rotate: [0, 90, 0],
       }}
       transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-      className="absolute top-20 -left-20 w-96 h-96 bg-[#ff4b82] rounded-full mix-blend-screen filter blur-[150px] opacity-20"
+      className="absolute top-20 -left-20 w-48 md:w-96 h-48 md:h-96 bg-[#ff4b82] rounded-full mix-blend-screen filter blur-[80px] md:blur-[150px] opacity-20"
     />
     <motion.div
       animate={{
@@ -854,31 +846,31 @@ export const Hero = ({ onOpenForm }: { onOpenForm: () => void }) => (
         rotate: [0, -90, 0],
       }}
       transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-      className="absolute bottom-20 -right-20 w-[500px] h-[500px] bg-[#8a2be2] rounded-full mix-blend-screen filter blur-[180px] opacity-20"
+      className="absolute bottom-20 -right-20 w-64 md:w-[500px] h-64 md:h-[500px] bg-[#8a2be2] rounded-full mix-blend-screen filter blur-[100px] md:blur-[180px] opacity-20"
     />
 
-    <div className="relative z-10 text-center max-w-5xl mx-auto">
+    <div className="relative z-10 text-center max-w-5xl mx-auto py-12 md:py-0">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
-        <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/5 border border-white/10 text-sm font-bold text-white/60 mb-10 backdrop-blur-2xl uppercase tracking-[0.2em]">
-          <Sparkles size={14} className="text-yellow-400" />
+        <div className="inline-flex items-center gap-2 px-4 md:px-6 py-2 md:py-3 rounded-full bg-white/5 border border-white/10 text-[10px] md:text-sm font-bold text-white/60 mb-6 md:mb-10 backdrop-blur-2xl uppercase tracking-[0.15em] md:tracking-[0.2em]">
+          <Sparkles size={12} className="text-yellow-400" />
           <span>Handcrafted Luxury Gifts</span>
         </div>
-        <h1 className="text-7xl md:text-9xl font-heading font-black tracking-tighter mb-10 leading-[0.9]">
+        <h1 className="text-5xl sm:text-6xl md:text-9xl font-heading font-black tracking-tighter mb-6 md:mb-10 leading-[1.1] md:leading-[0.9]">
           Create Your Own <br />
-          <span className="gradient-text">Custom Gift 💖</span>
+          <span className="gradient-text text-4xl sm:text-6xl md:text-9xl">Custom Gift 💖</span>
         </h1>
-        <p className="text-xl md:text-2xl text-white/40 max-w-3xl mx-auto mb-16 font-medium leading-relaxed">
+        <p className="text-base md:text-2xl text-white/40 max-w-2xl mx-auto mb-10 md:mb-16 font-medium leading-relaxed px-4 md:px-0">
           Personalised resin gifts crafted with love. We turn your precious memories into timeless pieces of art.
         </p>
 
-        <div className="flex justify-center">
+        <div className="flex justify-center px-4 md:px-0">
           <button
             onClick={onOpenForm}
-            className="px-12 py-6 bg-gradient-to-r from-[#ff4b82] to-[#8a2be2] rounded-full font-bold text-white shadow-2xl hover:scale-105 transition-all duration-300 btn-glow text-xl"
+            className="w-full md:w-auto px-8 md:px-12 py-5 md:py-6 bg-gradient-to-r from-[#ff4b82] to-[#8a2be2] rounded-full font-bold text-white shadow-2xl hover:scale-105 transition-all duration-300 btn-glow text-lg md:text-xl"
           >
             Get Your Product Customised 💝
           </button>
@@ -898,34 +890,36 @@ export const Occasions = ({ onOpenForm }: { onOpenForm: () => void }) => {
   ];
 
   return (
-    <section className="py-24 px-6 max-w-7xl mx-auto">
-      <div className="text-center mb-16">
-        <h2 className="text-4xl md:text-5xl font-heading font-bold mb-4">Occasions to Celebrate</h2>
-        <p className="text-white/40 font-medium italic">Find the perfect gift for every milestone.</p>
+    <section className="py-12 md:py-24 px-4 md:px-6 max-w-7xl mx-auto">
+      <div className="text-center mb-12 md:mb-16">
+        <h2 className="text-3xl md:text-5xl font-heading font-bold mb-4">Occasions to Celebrate</h2>
+        <p className="text-white/40 font-medium italic text-sm md:text-base">Find the perfect gift for every milestone.</p>
       </div>
-      <div className="grid grid-cols-1 gap-24">
+      <div className="grid grid-cols-1 gap-16 md:gap-24">
         {occasions.map((occ, i) => (
-          <div key={i} className={cn("flex flex-col md:flex-row items-center gap-16", i % 2 !== 0 && "md:flex-row-reverse")}>
+          <div key={i} className={cn("flex flex-col md:flex-row items-center gap-10 md:gap-16 text-center md:text-left", i % 2 !== 0 && "md:flex-row-reverse")}>
             <motion.div
-              initial={{ opacity: 0, x: i % 2 === 0 ? -50 : 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="flex-1 space-y-8"
+              className="flex-1 space-y-6 md:space-y-8 order-2 md:order-none"
             >
-              <h2 className="text-5xl md:text-6xl font-heading font-bold">{occ.title}</h2>
-              <p className="text-xl text-white/40 leading-relaxed font-medium">{occ.desc}</p>
-              <button
-                onClick={onOpenForm}
-                className="px-8 py-4 bg-gradient-to-r from-[#ff4b82] to-[#8a2be2] rounded-full font-bold text-white shadow-lg hover:scale-105 transition-all duration-300 btn-glow"
-              >
-                Get Your Product Customised 💝
-              </button>
+              <h2 className="text-4xl md:text-6xl font-heading font-bold">{occ.title}</h2>
+              <p className="text-base md:text-xl text-white/40 leading-relaxed font-medium px-4 md:px-0">{occ.desc}</p>
+              <div className="flex justify-center md:justify-start px-4 md:px-0">
+                <button
+                  onClick={onOpenForm}
+                  className="w-full md:w-auto px-8 py-4 md:py-5 bg-gradient-to-r from-[#ff4b82] to-[#8a2be2] rounded-full font-bold text-white shadow-lg hover:scale-105 transition-all duration-300 btn-glow text-base md:text-lg"
+                >
+                  Get Your Product Customised 💝
+                </button>
+              </div>
             </motion.div>
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              className="flex-1 w-full aspect-[4/3] rounded-[40px] overflow-hidden shadow-2xl border border-white/5"
+              className="flex-1 w-full aspect-[4/3] rounded-[30px] md:rounded-[40px] overflow-hidden shadow-2xl border border-white/5 order-1 md:order-none"
             >
               <img src={occ.img} alt={occ.title} className="w-full h-full object-cover transition-transform duration-700 hover:scale-110" />
             </motion.div>

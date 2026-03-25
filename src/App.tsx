@@ -15,6 +15,7 @@ import { Menu } from 'lucide-react';
 
 function App() {
   const [isFormOpen, setIsFormOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [policyType, setPolicyType] = useState<'privacy' | 'terms' | null>(null);
 
   const privacyContent = (
@@ -54,18 +55,21 @@ function App() {
   return (
     <div className="min-h-screen bg-[#030303] selection:bg-[#ff4b82]/30 text-white font-body">
       {/* Navigation */}
-      <nav className="fixed top-0 w-full z-[100] glass-dark border-b border-white/5 px-6 md:px-12 py-5 flex items-center justify-between">
-        <div className="flex items-center gap-4">
-          <button className="p-2 text-white/60 hover:text-white transition-colors lg:hidden">
-            <Menu size={24} />
+      <nav className="fixed top-0 w-full z-[100] glass-dark border-b border-white/5 px-4 md:px-12 py-3 md:py-5 flex items-center justify-between">
+        <div className="flex items-center gap-2 md:gap-4">
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="p-2 text-white/60 hover:text-white transition-colors lg:hidden"
+          >
+            <Menu size={20} />
           </button>
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2 md:gap-3">
             <img
               src="/logo.png"
               alt="Logo"
-              className="h-32 w-auto mix-blend-screen"
+              className="h-12 md:h-32 w-auto mix-blend-screen"
             />
-            <div className="text-2xl md:text-3xl font-heading font-black tracking-tighter gradient-text">
+            <div className="text-lg md:text-3xl font-heading font-black tracking-tighter gradient-text leading-tight">
               THE MANMESHI
             </div>
           </div>
@@ -81,6 +85,22 @@ function App() {
         <div className="flex items-center gap-2 md:gap-6">
         </div>
       </nav>
+
+      {/* Mobile Menu Overlay */}
+      <div className={`fixed inset-0 z-[90] lg:hidden transition-all duration-500 ${isMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'}`}>
+        <div className="absolute inset-0 bg-black/95 backdrop-blur-xl flex flex-col items-center justify-center gap-8 text-2xl font-heading font-bold">
+          <a href="#" onClick={() => setIsMenuOpen(false)} className="hover:text-[#ff4b82] transition-colors">Home</a>
+          <a href="#gallery" onClick={() => setIsMenuOpen(false)} className="hover:text-[#ff4b82] transition-colors">Gallery</a>
+          <a href="#occasions" onClick={() => setIsMenuOpen(false)} className="hover:text-[#ff4b82] transition-colors">Occasions</a>
+          <a href="#about" onClick={() => setIsMenuOpen(false)} className="hover:text-[#ff4b82] transition-colors">About</a>
+          <button
+            onClick={() => { setIsMenuOpen(false); setIsFormOpen(true); }}
+            className="mt-4 px-8 py-4 bg-gradient-to-r from-[#ff4b82] to-[#8a2be2] rounded-full text-lg font-bold shadow-xl"
+          >
+            Custom Order 💝
+          </button>
+        </div>
+      </div>
 
       <main>
         <Hero onOpenForm={() => setIsFormOpen(true)} />
