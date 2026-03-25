@@ -100,7 +100,7 @@ function App() {
         </div>
       </div>
 
-      <main className="space-y-6 md:space-y-12">
+      <main className="space-y-3 md:space-y-6">
         <Hero onOpenForm={() => setIsFormOpen(true)} />
         <section id="gallery"><Gallery /></section>
         <Categories />
