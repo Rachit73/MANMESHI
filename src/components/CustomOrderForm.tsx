@@ -223,7 +223,7 @@ export const Categories = () => {
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
             <div className="absolute bottom-4 left-4 md:bottom-6 md:left-6">
               <div className="p-2 md:p-3 bg-white/10 backdrop-blur-md rounded-xl md:rounded-2xl border border-white/20 mb-2 md:mb-3 w-fit">
-                <cat.icon size={16} md:size={20} className="text-[#ff4b82]" />
+                <cat.icon size={20} className="text-[#ff4b82]" />
               </div>
               <h3 className="text-sm md:text-xl font-bold text-white">{cat.name}</h3>
             </div>
@@ -510,7 +510,7 @@ Request: ${formData.request}`;
                 onClick={resetForm}
                 className="absolute top-4 right-4 md:top-8 md:right-8 p-2 text-white/30 hover:text-white transition-colors z-10 bg-white/5 rounded-full"
               >
-                <X size={18} md:size={20} />
+                <X size={20} />
               </button>
 
               <div className="p-6 md:p-14">
@@ -569,7 +569,7 @@ Request: ${formData.request}`;
                               disabled={!formData.name || !formData.contact}
                               className="w-full py-4 md:py-5 mt-2 md:mt-4 bg-gradient-to-r from-[#ff4b82] to-[#8a2be2] rounded-xl md:rounded-2xl font-bold text-base md:text-lg flex items-center justify-center gap-3 hover:opacity-90 transition-opacity disabled:opacity-30 shadow-xl"
                             >
-                              Continue <ArrowRight size={20} md:size={22} />
+                              Continue <ArrowRight size={22} />
                             </button>
                           </motion.div>
                         )}
@@ -658,7 +658,7 @@ Request: ${formData.request}`;
                                 disabled={!formData.occasion}
                                 className="flex-[2] py-4 md:py-5 bg-gradient-to-r from-[#ff4b82] to-[#8a2be2] rounded-xl md:rounded-2xl font-bold flex items-center justify-center gap-2 hover:opacity-90 transition-opacity disabled:opacity-30 shadow-xl text-sm md:text-base"
                               >
-                                Next Step <ArrowRight size={18} md:size={22} />
+                                Next Step <ArrowRight size={22} />
                               </button>
                             </div>
                           </motion.div>
@@ -692,7 +692,7 @@ Request: ${formData.request}`;
                                       "p-3 md:p-4 rounded-xl md:rounded-2xl transition-colors duration-500",
                                       formData.category === cat.label ? "bg-[#ff4b82] text-white" : "bg-white/5"
                                     )}>
-                                      <Icon size={20} md:size={28} />
+                                      <Icon size={28} />
                                     </div>
                                     <span className="font-bold text-xs md:text-base">{cat.label}</span>
                                   </button>
@@ -713,7 +713,7 @@ Request: ${formData.request}`;
                                 disabled={!formData.category}
                                 className="flex-[2] py-4 md:py-5 bg-gradient-to-r from-[#ff4b82] to-[#8a2be2] rounded-xl md:rounded-2xl font-bold flex items-center justify-center gap-2 hover:opacity-90 transition-opacity disabled:opacity-30 shadow-xl text-sm md:text-base"
                               >
-                                Next Step <ArrowRight size={18} md:size={22} />
+                                Next Step <ArrowRight size={22} />
                               </button>
                             </div>
                           </motion.div>
@@ -758,7 +758,7 @@ Request: ${formData.request}`;
                                   ) : (
                                     <>
                                       <div className="p-3 md:p-4 bg-white/5 rounded-full mb-2 md:mb-4">
-                                        <Camera className="text-[#ff4b82]" size={24} md:size={32} />
+                                        <Camera className="text-[#ff4b82]" size={32} />
                                       </div>
                                       <span className="text-xs md:text-sm text-white/40 font-bold">Click to upload reference design</span>
                                     </>
@@ -779,7 +779,7 @@ Request: ${formData.request}`;
                                 type="submit"
                                 className="flex-[2] py-4 md:py-5 bg-gradient-to-r from-[#ff4b82] to-[#8a2be2] rounded-xl md:rounded-2xl font-bold text-base md:text-lg flex items-center justify-center gap-3 hover:opacity-90 transition-opacity btn-glow shadow-2xl text-sm md:text-base"
                               >
-                                Submit Request <Send size={18} md:size={22} />
+                                Submit Request <Send size={22} />
                               </button>
                             </div>
                           </motion.div>
@@ -798,7 +798,7 @@ Request: ${formData.request}`;
                         <CheckCircle2 size={48} md:size={64} />
                       </div>
                       <div className="absolute -top-1 -right-1 md:-top-2 md:-right-2 p-2 md:p-3 bg-[#25D366] text-white rounded-full shadow-lg">
-                        <MessageSquare size={18} md:size={24} />
+                        <MessageSquare size={24} />
                       </div>
                     </div>
                     <h2 className="text-3xl md:text-4xl font-heading font-bold text-white mb-4 md:mb-6">Request Received 💖</h2>
